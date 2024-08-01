@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import io.github.alanabarbosa.repositories.UserRepository;
 
 @Service
-public class UserServices implements UserDetailsService {	
+public class UserServices implements UserDetailsService {
 	
 	private Logger logger = Logger.getLogger(UserServices.class.getName());
 	
 	@Autowired
-	UserRepository repository;	
+	UserRepository repository;
 	
 	public UserServices(UserRepository repository) {
 		this.repository = repository;
@@ -24,12 +24,12 @@ public class UserServices implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		logger.info("Finding one user by name!");
+		logger.info("Finding one user by name " + username + "!");
 		var user = repository.findByUsername(username);
 		if (user != null) {
 			return user;
 		} else {
-			throw new UsernameNotFoundException("Username" + username + " not found!");
+			throw new UsernameNotFoundException("Username " + username + " not found!");
 		}
 	}
 }

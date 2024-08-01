@@ -17,16 +17,15 @@ import jakarta.persistence.Table;
 public class Permission implements GrantedAuthority, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, length = 255)
+	@Column
 	private String description;
 	
-	
-	public Permission() {}	
+	public Permission() {}
 
 	@Override
 	public String getAuthority() {
@@ -47,12 +46,8 @@ public class Permission implements GrantedAuthority, Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}	
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(description, id);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {

@@ -11,6 +11,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails, Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,19 +41,20 @@ public class User implements UserDetails, Serializable {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_permission", joinColumns = {@JoinColumn (name = "id_user")},
-			inverseJoinColumns = {@JoinColumn (name = "id_permission")})
+		inverseJoinColumns = {@JoinColumn (name = "id_permission")}
+	)
 	
 	private List<Permission> permissions;
 	
 	public User() {}
-	
+
 	public List<String> getRoles() {
 		List<String> roles = new ArrayList<>();
-		for (Permission permission: permissions) {
+		for (Permission permission : permissions) {
 			roles.add(permission.getDescription());
 		}
-		return roles ;
-	}	
+		return roles;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -68,7 +70,7 @@ public class User implements UserDetails, Serializable {
 	public String getUsername() {
 		return this.userName;
 	}
-	
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return this.accountNonExpired;
@@ -155,12 +157,6 @@ public class User implements UserDetails, Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, fullName, id, password,
-				permissions, userName);
 	}
 
 	@Override

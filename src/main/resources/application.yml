@@ -14,9 +14,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: false
+    show-sql: true
     open-in-view: false
 springdoc:
-  pathsToMatch: /api/**/v1/**
+  pathsToMatch:
+    - /auth/**
+    - /api/**/v1/**		
   swagger-ui:
     use-root-path: true
