@@ -1,4 +1,4 @@
-package io.github.alanabarbosa.data.vo.v1.security;
+package io.github.alanabarbosa.integrationtests.vo;
 
 import java.io.Serializable;
 import java.util.Date;

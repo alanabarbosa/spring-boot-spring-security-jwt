@@ -1,5 +1,6 @@
 package io.github.alanabarbosa.security.jwt;
 
+
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+
 
 public class JwtTokenFilter extends GenericFilterBean{
 
