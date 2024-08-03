@@ -6,16 +6,26 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "PersonVO")
 public class PersonVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	@JsonProperty("first_name")
+	@XmlElement(name = "first_name")
 	@Column(nullable = false)
 	private String firstName;
+	
 	@JsonProperty("last_name")
+	 @XmlElement(name = "last_name")
 	@Column(nullable = false)
 	private String lastName;
 	private String address;

@@ -15,3 +15,8 @@
 	('Marc J. Schiller', '2017-11-07 15:09:01.674000', 45.00, 'Os 11 segredos de líderes de TI altamente influentes'),
 	('TESTEMarc J. Schiller', '2017-11-07 15:09:01.674000', 45.00, 'Os 11 segredos de líderes de TI altamente influentes'),
 	('Aguinaldo Aragon Fernandes e Vladimir Ferraz de Abreu', '2017-11-07 15:09:01.674000', 54.00, 'Implantando a governança de TI');
+	
+	
+	
+	INSERT INTO `books` (`author`, `launch_date`, `price`, `title`) VALUES
+	('teste', '2017-11-29 13:50:05.878000', 49.00, 'teste')
