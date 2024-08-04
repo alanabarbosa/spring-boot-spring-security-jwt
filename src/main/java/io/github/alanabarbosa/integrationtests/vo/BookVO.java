@@ -8,9 +8,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.dozermapper.core.Mapping;
 
 import jakarta.persistence.Column;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "BookVO")
 public class BookVO implements Serializable{
  
@@ -24,6 +27,8 @@ public class BookVO implements Serializable{
 	
 	@Mapping("launch_date")
 	@JsonProperty("launch_date")
+
+	@XmlElement(name = "launch_date")
 	@Column(nullable = false)
 	private Date lauchDate;
 	private Double price;
